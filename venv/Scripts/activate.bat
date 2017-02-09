@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=C:\Users\rayxk\OneDrive\문서\GitHub\study-django\venv"
+set "VIRTUAL_ENV=D:\GitHub\study-django\venv"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
