@@ -27,10 +27,20 @@ class HomeView(TemplateView):
         return render(request, self.template_name, {})
 
     def post(self, request, *args, **kwargs):
+        #1)
+        requested_id = request.POST['login_id']
+        requested_pw = request.POST['login_pw']
+        """
+        for member in userOBJ.objects.all():
+            requested_id == member.user
+        """
+        """
+        accinfo = [request.POST['login_id'],request.POST['login_pw']]
         accinfo = []
         accinfo.append(request.POST['login_id'])
         accinfo.append(request.POST['login_pw'])
         if request.POST['login_id'] == userOBJ.user:
+        """
 
 
 class VpsDetail(TemplateView):
