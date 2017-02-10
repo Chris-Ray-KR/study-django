@@ -24,6 +24,9 @@ class HomeView(TemplateView):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {})
 
+class VpsDetail(TemplateView):
+    template_name = 'vps_detail.html'
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view()),
