@@ -1,3 +1,4 @@
+{% load static %}
 <DOCTYPE html5></DOCTYPE>
 <html class=" wf-active" lang="ko-KR"><head>
 <meta charset="UTF-8">
@@ -6,8 +7,13 @@
 <link href="http://ocx.ohs1018.me/css/normalize.css" rel="stylesheet">
 <link href="http://ocx.ohs1018.me/css/style.css" rel="stylesheet">
 <link href="http://ocx.ohs1018.me/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/first.css' %}" />
+<script type="text/javascript" src="{% static 'javascripts/first.js' %}"></script>
+<script type="text/javascript">
+    test();
+</script>
 <style>.tk-source-han-sans-korean{font-family:"source-han-sans-korean",sans-serif;}</style><style></style></head>
-<body style="background-color: rgb(245, 245, 245);">
+<body>
 <nav id="ocx-nav">
 <div class="ocx-container">
 <ul>

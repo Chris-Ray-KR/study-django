@@ -15,16 +15,30 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+
 from django.views.generic.base import TemplateView
 from django.shortcuts import render
-
 class HomeView(TemplateView):
     template_name = 'index.html'
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {})
 
+
+from django.http import HttpResponse
+def methodView(request):
+    if request.method == 'GET':
+        html = "<html><body>It is now</body></html>"
+    return HttpResponse(html)
+
+from django.views.generic import View
+class MyView(View):
+    def get(self, request):
+        # 뷰 로직 작성
+        return HttpResponse('result')
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', HomeView.as_view()),
+    #url(r'^$', HomeView.as_view()),
+    url(r'^$', methodView),
 ]
