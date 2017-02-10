@@ -17,6 +17,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic.base import TemplateView
 from django.shortcuts import render
+from django.shortcuts import redirect
+from firstapp.models import userOBJ
 
 class HomeView(TemplateView):
     template_name = 'index.html'
@@ -24,10 +26,21 @@ class HomeView(TemplateView):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {})
 
+    def post(self, request, *args, **kwargs):
+        accinfo = []
+        accinfo.append(request.POST['login_id'])
+        accinfo.append(request.POST['login_pw'])
+        if request.POST['login_id'] == userOBJ.user:
+
+
 class VpsDetail(TemplateView):
     template_name = 'vps_detail.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {})
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view()),
+    url(r'^vps_detail/', VpsDetail.as_view())
 ]

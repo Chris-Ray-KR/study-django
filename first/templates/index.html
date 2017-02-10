@@ -1,108 +1,46 @@
-<!DOCTYPE HTML>
-<html lang="ko-KR">
+<!doctype html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Test</title>
-<script type="text/javascript">
-//<![CDATA[
-try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"04be3fc56829ccbf93917485da5775ed",petok:"3b1954b3688d2daf2b714452478e9ea054af73c4-1486702300-1800",zone:"ohs1018.me",rocket:"a",apps:{}}];document.write('<script type="text/javascript" src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js"><'+'\/script>');}}catch(e){};
-//]]>
-</script>
-    {% load static %}
-<link href="{% static '/css/1.css' %}" rel="stylesheet">
-<link href="{% static '/css/2.css' %}" rel="stylesheet">
-<link href="{% static '/css/3.css' %}" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+<title>로그인 | OceanIX AquaX</title>
+<link rel="stylesheet" href="http://aquax.oceanix.kr/theme/basic/css/style.css?ver=161020">
+<!--[if lte IE 8]>
+<script src="http://aquax.oceanix.kr/js/html5.js"></script>
+<![endif]-->
+<script src="http://aquax.oceanix.kr/js/jquery-1.8.3.min.js"></script>
+<script src="http://aquax.oceanix.kr/js/jquery.menu.js?ver=161020"></script>
+<script src="http://aquax.oceanix.kr/js/common.js?ver=161020"></script>
+<script src="http://aquax.oceanix.kr/js/wrest.js?ver=161020"></script>
 </head>
-<body style="background-color: #f5f5f5;">
-<nav id="ocx-nav">
-<div class="ocx-container">
-<ul>
-<li><a href="#">Logo</a></li>
-</ul>
+<body>
+<!-- 로그인 시작 { -->
+<div id="mb_login" class="mbskin">
+    <h1>로그인</h1>
+
+    <form name="flogin" action="https://aquax.oceanix.kr/bbs/login_check.php" onsubmit="return flogin_submit(this);" method="post">
+    <input type="hidden" name="url" value="http%3A%2F%2Faquax.oceanix.kr">
+
+    <fieldset id="login_fs">
+        <legend>회원로그인</legend>
+        <label for="login_id" class="login_id">AquaX ID</label>
+        <input type="text" name="mb_id" id="login_id" required class="frm_input required" size="20" maxLength="20" placeholder="OceanIX">
+        <label for="login_pw" class="login_pw">암호</label>
+        <input type="password" name="mb_password" id="login_pw" required class="frm_input required" size="20" maxLength="20" placeholder="****">
+        <input type="submit" value="로그인" class="tb_btn">
+    </fieldset>
+
+    <aside id="login_info">
+        <h2>AquaX 이용 안내</h2>
+        <p>
+            OceanIX 고객전용 포털 사이트 입니다. <br />
+			보안을 위해 모든 기록은 서버에 저장됩니다.
+        </p>
+    </aside>
+
 </div>
-</nav>
-<article id="ocx-content">
-<p class="title" style="font-size: 21px; font-weight: 500;">서버이름을 출력합니다.</p>
-<hr/>
-<div id="lContent" style="float: left;">
-<div class="row">
-<div class="col-sm-1 vps-box active">
-<i class="fa fa-info-circle" aria-hidden="true"></i>
-<p>상세정보</p>
-</div>
-<div class="col-sm-1 vps-box">
-<i class="fa fa-info-circle" aria-hidden="true"></i>
-<p>트래픽</p>
-</div>
-<div class="col-sm-1 vps-box">
-<i class="fa fa-info-circle" aria-hidden="true"></i>
-<p>전원</p>
-</div>
-<div class="col-sm-1 vps-box">
-<i class="fa fa-info-circle" aria-hidden="true"></i>
-<p>VNC</p>
-</div>
-<div class="col-sm-1 vps-box">
-<i class="fa fa-info-circle" aria-hidden="true"></i>
-<p>서버설정</p>
-</div>
-<div class="col-sm-1 vps-box">
-<i class="fa fa-info-circle" aria-hidden="true"></i>
-<p>모니터링</p>
-</div>
-</div>
-<div class="row clearfix">
-<div class="col-sm-2 vps-box2">
-<p id="title">CPU</p>
-<p id="subTitle">100%</p>
-</div>
-<div class="col-sm-2 vps-box2">
-<p id="title">Memory</p>
-<p id="subTitle">100%</p>
-</div>
-<div class="col-sm-2 vps-box2">
-<p id="title">Disk</p>
-<p id="subTitle">100%</p>
-</div>
-</div>
-<div class="row clearfix">
-<div id="sDetail"></div>
-</div>
-<div class="row clearfix">
-<div id="sWork">
-<div class="sInfo-heading">
-<p>최근 작업 내역</p>
-</div>
-</div>
-</div>
-</div>
-<div id="rContent">
-<div id="sInfo">
-<div class="sInfo-heading">
-<p>서비스 정보</p>
-<div id="disk">
-<p>Disk:</p>
-<p class="rp">10GB</p>
-</div>
-<div id="memory">
-<p>Memory:</p>
-<p class="rp">1024MB</p>
-</div>
-<div id="os">
-<p>OS:</p>
-<p class="rp">Windows Server</p>
-</div>
-</div>
-</div>
-<div id="aInfo">
-<div class="sInfo-heading">
-<p>최근 알림 내역</p>
-</div>
-</div>
-</div>
-</article>
-<script data-rocketsrc="//use.typekit.net/pfv5tny.js" type="text/rocketscript"></script>
-<script type="text/rocketscript">try{Typekit.load({ async: true });}catch(e){}</script>
+<!-- } 로그인 끝 -->
+
 </body>
 </html>
